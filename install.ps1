@@ -17,7 +17,7 @@ New-Item -ItemType Directory -Path $installDirectory -Force | Out-Null
 Copy-Item -LiteralPath $source -Destination $target -Force
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'uninstall.ps1') -Destination $uninstaller -Force
 
-$previousStartup = Get-ItemPropertyValue -Path $runKey -Name 'CodexTitlebarMeter' -ErrorAction SilentlyContinue
+$previousStartup = (Get-ItemProperty -Path $runKey -ErrorAction Stop).CodexTitlebarMeter
 if ($previousStartup) {
     New-Item -Path $backupKey -Force | Out-Null
     Set-ItemProperty -Path $backupKey -Name 'PreviousMeterStartup' -Value $previousStartup

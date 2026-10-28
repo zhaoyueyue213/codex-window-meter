@@ -9,7 +9,7 @@ Get-Process -Name 'codex-window-meter' -ErrorAction SilentlyContinue | Stop-Proc
 Remove-ItemProperty -Path $runKey -Name 'CodexWindowMeter' -ErrorAction SilentlyContinue
 Remove-Item -Path $uninstallKey -ErrorAction SilentlyContinue
 
-$previousStartup = Get-ItemPropertyValue -Path $backupKey -Name 'PreviousMeterStartup' -ErrorAction SilentlyContinue
+$previousStartup = (Get-ItemProperty -Path $backupKey -ErrorAction SilentlyContinue).PreviousMeterStartup
 if ($previousStartup) {
     $previousExecutable = $previousStartup.Trim('"')
     if (Test-Path -LiteralPath $previousExecutable -PathType Leaf) {

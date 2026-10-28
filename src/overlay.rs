@@ -38,7 +38,7 @@ use windows_sys::Win32::{
             PostMessageW, PostQuitMessage, RegisterClassW, SW_HIDE, SWP_NOACTIVATE, SWP_SHOWWINDOW,
             SetLayeredWindowAttributes, SetTimer, SetWindowPos, ShowWindow, TranslateMessage,
             WM_APP, WM_DESTROY, WM_ERASEBKGND, WM_PAINT, WM_TIMER, WNDCLASSW, WS_EX_LAYERED,
-            WS_EX_NOACTIVATE, WS_EX_TOOLWINDOW, WS_EX_TRANSPARENT, WS_POPUP,
+            WS_EX_NOACTIVATE, WS_EX_TOOLWINDOW, WS_EX_TOPMOST, WS_EX_TRANSPARENT, WS_POPUP,
         },
     },
 };
@@ -132,7 +132,7 @@ pub fn run() -> Result<(), String> {
     }
     let overlay = unsafe {
         CreateWindowExW(
-            WS_EX_LAYERED | WS_EX_NOACTIVATE | WS_EX_TOOLWINDOW | WS_EX_TRANSPARENT,
+            WS_EX_LAYERED | WS_EX_NOACTIVATE | WS_EX_TOOLWINDOW | WS_EX_TOPMOST | WS_EX_TRANSPARENT,
             class_name.as_ptr(),
             wide("Codex Window Meter").as_ptr(),
             WS_POPUP,
