@@ -1,0 +1,1 @@
+D:\projects\tuiyandemo\chajian\target\release\codex-window-meter.exe: D:\projects\tuiyandemo\chajian\src\main.rs D:\projects\tuiyandemo\chajian\src\overlay.rs D:\projects\tuiyandemo\chajian\src\quota.rs
